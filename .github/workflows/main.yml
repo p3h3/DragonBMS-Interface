@@ -23,4 +23,4 @@ jobs:
           gh repo clone https://github.com/p3h3/DragonBMS-Interface-Chrome
           cd DragonBMS-Interface-Chrome
           gh release download --pattern '*.exe' $(gh release list -L1 | awk -F'\t' '{print $3}')
-          ls
+          echo $(ls)
