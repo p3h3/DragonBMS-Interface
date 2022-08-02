@@ -25,21 +25,10 @@ jobs:
           rm -rf ./*
           gh release download --pattern '*.exe' $(gh release list -L1 | awk -F'\t' '{print $3}')
           gh release download --pattern '*.AppImage' $(gh release list -L1 | awk -F'\t' '{print $3}')
-          mkdir downloads
-          mv *.exe downloads
-          mv *.AppImage downloads
           echo $(ls)
-          cd downloads
-          echo $(ls)
-          cd ..
           
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with: 
           name: Release-Downloads
-          path: downloads/
-      - name: appimage
-        uses: actions/upload-artifact@v2
-        with: 
-          name: appimage
-          path: downloads/DragonBMS-Interface-0.2.2.AppImage
+          path: DragonBMS-Interface-Chrome
