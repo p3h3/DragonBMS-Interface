@@ -25,6 +25,7 @@ jobs:
           rm -rf ./*
           version=$(gh release list -L1 | awk -F'\t' '{print $3}')
           echo $version
+          echo $(ls)
           gh release download --pattern '*.exe' $version
           gh release download --pattern '*.AppImage' $version
           cd ..
