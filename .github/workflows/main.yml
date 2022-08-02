@@ -26,7 +26,7 @@ jobs:
           gh release download --pattern '*.exe' $(gh release list -L1 | awk -F'\t' '{print $3}')
           gh release download --pattern '*.AppImage' $(gh release list -L1 | awk -F'\t' '{print $3}')
           cd ..
-          gh release create $(cd DragonBMS-Interface-Chrome & gh release list -L1 | awk -F'\t' '{print $3} ./DragonBMS-Interface-Chrome -- 
+          gh release create $(cd DragonBMS-Interface-Chrome & gh release list -L1 | awk -F'\t' '{print $3}) ./DragonBMS-Interface-Chrome
           echo $(ls)
           
       - name: Upload artifacts
