@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Release
 
 # Controls when the workflow will run
 on:
@@ -23,14 +23,9 @@ jobs:
           git clone https://${{ secrets.gh_token }}@github.com/p3h3/DragonBMS-Interface-Chrome.git
           cd DragonBMS-Interface-Chrome
           rm -rf ./*
-          gh release download --pattern '*.exe' $(gh release list -L1 | awk -F'\t' '{print $3}')
-          gh release download --pattern '*.AppImage' $(gh release list -L1 | awk -F'\t' '{print $3}')
+          version=$(gh release list -L1 | awk -F'\t' '{print $3}')
+          echo $version
+          gh release download --pattern '*.exe' $version
+          gh release download --pattern '*.AppImage' $version
           cd ..
-          gh release create v0.2.2 ./DragonBMS-Interface-Chrome/*
-          echo $(ls)
-          
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with: 
-          name: Release-Downloads
-          path: DragonBMS-Interface-Chrome
+          gh release create $version ./DragonBMS-Interface-Chrome/*
