@@ -25,10 +25,10 @@ jobs:
           rm -rf ./*
       - name: Downloading releases
         run: |
-          mkdir downloads
-          cd downloads
           gh release download --pattern '*.exe' $(gh release list -L1 | awk -F'\t' '{print $3}')
           gh release download --pattern '*.AppImage' $(gh release list -L1 | awk -F'\t' '{print $3}')
+          mkdir downloads
+          mv ./* downloads/
           echo $(ls)
           
       - name: Step 3 - Use the Upload Artifact GitHub Action
