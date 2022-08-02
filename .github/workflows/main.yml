@@ -29,6 +29,9 @@ jobs:
           mv *.exe downloads
           mv *.AppImage downloads
           echo $(ls)
+          cd downloads
+          echo $(ls)
+          cd ..
           
       - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
