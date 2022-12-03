@@ -12,4 +12,15 @@ Versions for Linux (Desktop):
 - DragonBMS-Interface-X.X.XX.AppImage (64bit "executable")
 
 Version for Linux (Raspberry-Pi):
-- DragonBMS-Interface-0.3.99-armv7l.AppImage (ARMv7l "executable")
+- DragonBMS-Interface-X.X.XX-armv7l.AppImage (ARMv7l "executable")
+
+Instructions for Chromebook:
+- DragonBMS-Interface-X.X.XX-arm64.AppImage (ARM64 "executable")
+
+- install linux subsystem for chromebook
+- sudo apt install zlib1g-dev libnss3e
+- download the arm64 version of the appimage
+- copy it to the linux subsystem files
+- make it executable (terminal chmod +x)
+- pray to god
+- run it (./DragonBMS...)
