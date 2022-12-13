@@ -28,5 +28,6 @@ jobs:
           echo $(ls)
           gh release download --pattern '*.exe' $version
           gh release download --pattern '*.AppImage' $version
+          gh release download --pattern '*.zip' $version
           cd ..
           gh release create $version ./DragonBMS-Interface-Chrome/*
